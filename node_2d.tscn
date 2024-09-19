@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsj3a7ewr43h"]
+
+[ext_resource type="Script" path="res://Global.gd" id="1_l30x5"]
+[ext_resource type="PackedScene" uid="uid://dbttk8hjhbxcp" path="res://tile_map.tscn" id="2_gcsm6"]
+[ext_resource type="PackedScene" uid="uid://dap7k1neniowu" path="res://objects/main_character.tscn" id="3_76ua8"]
+[ext_resource type="PackedScene" uid="uid://c8ofyde6p38q1" path="res://objects/star.tscn" id="4_3dyu4"]
+[ext_resource type="Script" path="res://label.gd" id="4_pmww0"]
+
+[node name="main scene" type="Node2D"]
+script = ExtResource("1_l30x5")
+
+[node name="TileMap" parent="." instance=ExtResource("2_gcsm6")]
+position = Vector2(-62, -39)
+
+[node name="Main Character" parent="." instance=ExtResource("3_76ua8")]
+position = Vector2(-165, -42)
+scale = Vector2(0.3, 0.3)
+
+[node name="Control" type="Control" parent="Main Character"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Main Character/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -10.847
+anchor_top = -5.424
+offset_left = 373.88
+offset_top = 90.2933
+offset_right = 453.0
+offset_bottom = 256.333
+theme_override_font_sizes/font_size = 31
+text = "Score:
+"
+script = ExtResource("4_pmww0")
+
+[node name="Camera2D" type="Camera2D" parent="Main Character"]
+
+[node name="Star" parent="." instance=ExtResource("4_3dyu4")]
+position = Vector2(43, -93)
+
+[node name="Star2" parent="." instance=ExtResource("4_3dyu4")]
+position = Vector2(317, -7)
+
+[node name="Star3" parent="." instance=ExtResource("4_3dyu4")]
+position = Vector2(154, 43)
